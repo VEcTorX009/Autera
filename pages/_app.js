@@ -6,17 +6,21 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
+  UserProfile,
+  useUser,
 } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CustomLoader from "@/components/CustomLoader";
 import Home from "@/components/Home";
+import Welcome from "@/components/Welcome";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   const [showpopup, setShowpopup] = useState(true)
   const [userProfile, setUserProfile] = useState({ questions: 0, correct: 0, interests: "" });
   const [loading, setLoading] = useState(false);
+  const [shownotif, setShownotif] = useState(false)
   const router = useRouter();
 
   useEffect(() => {
@@ -50,9 +54,10 @@ export default function App({ Component, pageProps }) {
               <div className="fadein">
                 {loading && <CustomLoader />}
                 <Navbar />
-
+{shownotif && <Welcome name={"Som"}/>}
                 <Component
                   setLoading={setLoading}
+                  setShownotif={setShownotif}
                   setShowpopup={setShowpopup}
                   showpopup={showpopup}
                   userProfile={userProfile}

@@ -2,12 +2,13 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Home({showpopup, setShowpopup,setUserProfile,userProfile}) {
+export default function Home({showpopup, setShowpopup,setUserProfile,userProfile,setShownotif}) {
   const [option, setOption] = useState("")
 
   const start =()=>{
     setShowpopup(false)
     setUserProfile({...userProfile,interests: option})
+    setShownotif(true)
   }
   return (
     <>
