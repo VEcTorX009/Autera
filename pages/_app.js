@@ -17,13 +17,12 @@ export default function App({ Component, pageProps }) {
   const [userProfile, setUserProfile] = useState({ questions: 0, correct: 0 });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  
 
   useEffect(() => {
     const handleRouteChangeStart = () => {
       setLoading(true);
     };
-    
+
     const handleRouteChangeEnd = () => {
       setLoading(false);
     };
@@ -40,25 +39,28 @@ export default function App({ Component, pageProps }) {
   }, [router]);
   return (
     <>
-    <Head>
-    <link rel="icon" href="/logo.svg" type="image/x-icon"></link>
-    </Head>
+      <Head>
+        <link rel="icon" href="/logo.svg" type="image/x-icon"></link>
+      </Head>
       <ClerkProvider>
         <>
           <SignedIn>
             <>
-            <div className="fadein">
+              <div className="fadein">
+                {loading && <CustomLoader />}
+                <Navbar />
 
-            {loading && <CustomLoader/>}
-              <Navbar />
-
-              <Component setLoading={setLoading} userProfile={userProfile} setUserProfile={setUserProfile} {...pageProps} />
-            </div>
+                <Component
+                  setLoading={setLoading}
+                  userProfile={userProfile}
+                  setUserProfile={setUserProfile}
+                  {...pageProps}
+                />
+              </div>
             </>
           </SignedIn>
           <SignedOut>
-            <Home/>
-           
+            <Home />
           </SignedOut>
         </>
       </ClerkProvider>

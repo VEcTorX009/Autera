@@ -35,7 +35,11 @@ Building Bridges to Brighter Tomorrows"
             <div className="text-[#6F61C0] flex border border-[#6F61C0] flex-col rounded-2xl space-y-6 h-[20vw] w-[90vw] p-12  justify-center  ">
               <h2 className="text-[2vw] font-semibold">Video Calls</h2>
               <p className="text-[1vw]">
-              Experience meaningful connections through video calls with friendly individuals worldwide. If you prefer a more comfortable interaction, you can also connect through text messages. Our platform is designed to foster connection and support on your terms.
+                Experience meaningful connections through video calls with
+                friendly individuals worldwide. If you prefer a more comfortable
+                interaction, you can also connect through text messages. Our
+                platform is designed to foster connection and support on your
+                terms.
               </p>
               <div>
                 <button

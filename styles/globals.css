@@ -9,7 +9,9 @@
 }
 body {
   font-family: 'Prompt';
-
+} 
+.fontprompt{
+  font-family: "Prompt";
 }
 .dashboardbg{
   background-image: url("../public/dashboardbg.png");

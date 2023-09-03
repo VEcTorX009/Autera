@@ -79,7 +79,7 @@ export default function Navbar() {
               </svg>
             </div>
             <span className="self-center font-semibold pl-3 text-[#6F61C0] text-2xl   ">
-              AuTerra
+              AuTera
             </span>
           </Link>
           <div className="flex space-x-4 md:order-2">
