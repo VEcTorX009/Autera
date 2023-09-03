@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CustomLoader from "@/components/CustomLoader";
 import Home from "@/components/Home";
+import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
   const [userProfile, setUserProfile] = useState({ questions: 0, correct: 0 });
@@ -39,6 +40,9 @@ export default function App({ Component, pageProps }) {
   }, [router]);
   return (
     <>
+    <Head>
+    <link rel="icon" href="/logo.svg" type="image/x-icon"></link>
+    </Head>
       <ClerkProvider>
         <>
           <SignedIn>
