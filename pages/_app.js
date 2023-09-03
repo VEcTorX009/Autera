@@ -10,6 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import CustomLoader from "@/components/CustomLoader";
+import Home from "@/components/Home";
 
 export default function App({ Component, pageProps }) {
   const [userProfile, setUserProfile] = useState({ questions: 0, correct: 0 });
@@ -47,12 +48,13 @@ export default function App({ Component, pageProps }) {
             {loading && <CustomLoader/>}
               <Navbar />
 
-              <Component userProfile={userProfile} setUserProfile={setUserProfile} {...pageProps} />
+              <Component setLoading={setLoading} userProfile={userProfile} setUserProfile={setUserProfile} {...pageProps} />
             </div>
             </>
           </SignedIn>
           <SignedOut>
-            <RedirectToSignIn />
+            <Home/>
+           
           </SignedOut>
         </>
       </ClerkProvider>

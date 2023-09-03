@@ -51,3 +51,18 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.callbg{
+  background-image: url("../public/callbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.z-100{
+  z-index: 99999;
+}
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+.active{
+  color: rgb(134, 0, 223);
+}
