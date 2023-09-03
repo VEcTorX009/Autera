@@ -25,12 +25,17 @@ export default function quizes({ setUserProfile, userProfile }) {
   const next = () => {
     if (quiz[pageid].answer === option) {
       setUserProfile({
+        ...userProfile,
         questions: quiz.length,
         correct: userProfile.correct + 1,
       });
       console.log("correct");
     } else {
-      setUserProfile({ questions: quiz.length, correct: userProfile.correct });
+      setUserProfile({
+        ...userProfile,
+        questions: quiz.length,
+        correct: userProfile.correct,
+      });
       console.log("incorrect");
     }
     setOption(null);
@@ -65,14 +70,39 @@ export default function quizes({ setUserProfile, userProfile }) {
               showQuiz
                 ? " transition-all fadeout  items-center flex justify-center"
                 : "transition-all fadein "
-            } 
+            }
           >
             <h1 className="text-[3vw] mt-[15vw] font-semibold text-white">
               Are You Ready For Another
             </h1>
             <h1 className="text-[3vw]  font-semibold text-[#6F61C0] ">
               Exciting <span className="text-white">Questionnaire?</span>
+              
             </h1>
+            <h1 className="text-[1.3vw]  font-semibold text-white">
+              Your interests
+            </h1>
+            <div className="flex justify-center items-center my-4 flex-row space-x-4">
+            <div
+              className={` bg-white text-[#6F61C0] 
+                     cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+            >
+              Arts
+            </div>
+            <div
+              className={` bg-white text-[#6F61C0] 
+                     cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+            >
+              Science
+            </div>
+            <div
+              className={` bg-white text-[#6F61C0] 
+                     cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+            >
+              Technology
+            </div>
+
+            </div>
             <div>
               <button
                 type="button"

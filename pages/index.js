@@ -1,7 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function Home() {
+export default function Home({showpopup, setShowpopup,setUserProfile,userProfile}) {
+  const [option, setOption] = useState("")
+
+  const start =()=>{
+    setShowpopup(false)
+    setUserProfile({...userProfile,interests: option})
+  }
   return (
     <>
       <Head>
@@ -12,7 +19,156 @@ export default function Home() {
 Building Bridges to Brighter Tomorrows"
         />
       </Head>
-      <div className="min-h-screen pt-[100px] flex flex-col p-8">
+      {showpopup ? <div className="flex flex-col fixed justify-center items-center h-screen w-full bg-[#866FCD] space-y-2 font-bold text-white">
+      
+      <h1 className="text-[3vw]">Select Your Interests! </h1>
+      <div className="flex text-[#866FCD] flex-col space-y-2">
+                  <div className="flex flex-row space-x-2">
+                    <div
+                      onClick={() => {
+                        setOption("technology");
+                      }}
+                      className={` ${
+                        option === "technology"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Technology
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("arts");
+                      }}
+                      className={` ${
+                        option === "arts"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Arts
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("gaming");
+                      }}
+                      className={` ${
+                        option === "gaming"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Gaming
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("everything");
+                      }}
+                      className={` ${
+                        option === "everything"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Everything
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("science");
+                      }}
+                      className={` ${
+                        option === "science"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                    
+                      Science
+                    </div>
+                  </div>
+                  <div className="flex flex-row space-x-2">
+                    <div
+                      onClick={() => {
+                        setOption("finance");
+                      }}
+                      className={` ${
+                        option === "finance"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Finance
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("dance");
+                      }}
+                      className={` ${
+                        option === "dance"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Dance
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("music");
+                      }}
+                      className={` ${
+                        option === "music"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Music
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("research");
+                      }}
+                      className={` ${
+                        option === "research"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                      
+                      Research
+                    </div>
+                    <div
+                      onClick={() => {
+                        setOption("sports");
+                      }}
+                      className={` ${
+                        option === "sports"
+                          ? "text-white bg-[#6F61C0]"
+                          : "bg-white"
+                      } cursor-pointer font-semibold  items-center  transition-all  flex text-2xl border border-black w-[10vw] rounded-xl p-2`}
+                    >
+                    
+                    Sports
+                    </div>
+                  </div>
+                  </div>
+      <button
+      onClick={start}
+        type="button"
+        className="py-3 px-12  transition-all  hover:bg-[#685bb0] hover:text-white   text-[#6F61C0] bg-white text-3xl rounded-xl"
+      >
+        Continue
+      </button>
+   
+    </div>
+    :
+      <div className="min-h-screen pt-[100px] fadein flex flex-col p-8">
         <div className="flex flex-col space-y-5">
           <div className="flex-row flex justify-between space-x-3">
             <div className="text-white flex flex-col rounded-2xl space-y-6 h-[20vw] w-[90vw] p-12 bg-gradient-to-br from-purple-800 to-white justify-center  ">
@@ -74,6 +230,7 @@ Building Bridges to Brighter Tomorrows"
           </div>
         </div>
       </div>
+    }
     </>
   );
 }

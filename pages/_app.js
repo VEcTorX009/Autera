@@ -14,7 +14,8 @@ import Home from "@/components/Home";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }) {
-  const [userProfile, setUserProfile] = useState({ questions: 0, correct: 0 });
+  const [showpopup, setShowpopup] = useState(true)
+  const [userProfile, setUserProfile] = useState({ questions: 0, correct: 0, interests: "" });
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -52,6 +53,8 @@ export default function App({ Component, pageProps }) {
 
                 <Component
                   setLoading={setLoading}
+                  setShowpopup={setShowpopup}
+                  showpopup={showpopup}
                   userProfile={userProfile}
                   setUserProfile={setUserProfile}
                   {...pageProps}
